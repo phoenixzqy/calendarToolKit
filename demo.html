@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>calendarToolKit Demo Page</title>
     <script   src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="calendarToolKit.css">
     <style>
     .wrapper{
       margin: 100px auto;
@@ -11,6 +12,13 @@
       height: 600px;
     }
     </style>
+
+    <script>
+    $(document).ready(function(){
+      calendarTool.init();
+      calendarTool.getAvailableDate();
+    });
+    </script>
   </head>
   <body>
     <div class="wrapper">
