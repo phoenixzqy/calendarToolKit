@@ -10,6 +10,8 @@ For now, the tool kit only include **2 date pickers**. Please go to the demo pag
 
 ### [Demo](https://phoenixzqy.github.io/demo/)
 
+Note: The repo only has one Date Picker module. The other one is under revising.
+
 *Date Picker 1*
 ===
 
@@ -207,4 +209,5 @@ New you can test you onClick event by click on the dates.
 Enjoy
 ---
 Author: Felix Zhao
+
 Date: Oct 12th, 2016
