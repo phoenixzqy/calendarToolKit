@@ -480,23 +480,23 @@ var calendarTool = (function () {
 
 		// add click event for submit
 		$("#CTKSubmit").unbind("click").bind("click", function(){
-			var emptyPriceArr = [];
-			for(var i in availableDate){
-				if(!availableDate[i].price){
-					emptyPriceArr.push(availableDate[i].date);
-				}
-			}
-			for(var i in table){
-				var date = $(table[i]).find(".CTKdate").attr("caldata");
-				if(emptyPriceArr.indexOf(date) > -1){
-					$(table[i]).addClass("CTKalert");
-				}else{
-					$(table[i]).removeClass("CTKalert");
-				}
-			}
-			if(emptyPriceArr.length <= 0){
+			// var emptyPriceArr = [];
+			// for(var i in availableDate){
+			// 	if(!availableDate[i].price){
+			// 		emptyPriceArr.push(availableDate[i].date);
+			// 	}
+			// }
+			// for(var i in table){
+			// 	var date = $(table[i]).find(".CTKdate").attr("caldata");
+			// 	if(emptyPriceArr.indexOf(date) > -1){
+			// 		$(table[i]).addClass("CTKalert");
+			// 	}else{
+			// 		$(table[i]).removeClass("CTKalert");
+			// 	}
+			// }
+			// if(emptyPriceArr.length <= 0){
 				options.submitFct();
-			}
+			// }
 		});
 	};
 
