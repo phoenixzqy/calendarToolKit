@@ -115,13 +115,13 @@ var Calendar = (function () {
 		}
 	};
 	/**
-	 * [calDataParser description]
-	 * @method calDataParser
-	 * @param  {[number/string]}      y [year or data of array in string type]
-	 * @param  {[number]}      m [month]
-	 * @param  {[number]}      r [month]
-	 * @return {[array]}        [array of y m d]
-	 */
+ * [calDataParser description]
+ * @method calDataParser
+ * @param  {[number/string]}      y [year or data of array in string type]
+ * @param  {[number]}      m [month]
+ * @param  {[number]}      r [month]
+ * @return {[array]}        [array of y m d]
+ */
 	calDataParser = function(y,m,d){
 		if(typeof m !== 'undefined' && typeof d !== 'undefined')
 			return [y, m, d];
