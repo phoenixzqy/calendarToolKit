@@ -218,7 +218,11 @@ var Calendar = (function () {
 			$("#calendarToolKit").css("height",height);
 			$("#calendarToolKit").css("position","relative");
 
-
+			// change the height with width changing. Making calendar height responsible with width
+			$(window).resize(function(){
+				height = $("#calendarToolKit").outerWidth() * 10 / 16;
+				$("#calendarToolKit").css("height",height);
+			});
 
 			// WEEKDAYS list
 	    for(var i in WEEKDAYS_SHORT) {
