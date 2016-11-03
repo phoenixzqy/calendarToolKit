@@ -7,7 +7,7 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
-  font-size: 14px;
+  font-size: 13px;
   color: rgb(218, 110, 10);
 }
 .CTKtable{
@@ -16,18 +16,26 @@
   border-spacing: 1px;
 }
 .CTKtable td{
-  border: 2px solid #eee;
+  border: 2px solid #fff;
   position: relative;
   padding: .5px;
+  background-color: rgb(176, 216, 251);
+}
+.CTKtable td.CTKdisabled{
+  background-color: rgb(221, 224, 223);
 }
 .CTKtable td:hover{
-  background-color: #ccc;
+  /*background-color: #ccc;*/
+  border-style: dashed !important;
 }
 .CTKselected{
-  border: 2px solid rgb(10, 195, 213) !important;
+  border: 2px solid rgb(226, 121, 33) !important;
 }
 .CTKavailableDate{
-  background-color: rgb(141, 231, 247) !important;
+  background-color: rgb(176, 216, 251) !important;
+}
+.CTKblockedDate{
+  background-color: rgb(208, 208, 208) !important;
 }
 .CTKalert{
   border: 1px solid red;
@@ -53,8 +61,8 @@
   padding:5px 0;
 }
 .CTKprevBtn, .CTKnextBtn{
-  width: 20px;
-  height: 20px;
+  width: 36px;
+  height: 32px;
   position: absolute;
   top: 3%;
   z-index: 2;
@@ -68,7 +76,8 @@
   -ms-user-select: none; /* IE10+ */
 }
 .CTKprevBtn:hover, .CTKnextBtn:hover{
-  background-color: rgb(141, 231, 247);
+  background-color: rgb(100, 155, 255);
+  color : #fff;
 
 }
 .CTKprevBtn{
@@ -77,29 +86,27 @@
 .CTKnextBtn{
   right: 2%;
 }
-
-.CTKcol-4{
-  width: 33%;
+.CTKcol-3, .CTKcol-4, .CTKcol-6, .CTKcol-8{
   margin: 0;
   padding: 0;
   float: left;
   border: none;
+}
+.CTKcol-3{
+  width: 25%;
+}
+.CTKcol-4{
+  width: 33%;
 }
 .CTKcol-6{
   width: 50%;
-  margin: 0;
-  padding: 0;
-  float: left;
-  border: none;
 }
 .CTKcol-8{
   width: 66%;
-  margin: 0;
-  padding: 0;
-  float: left;
-  border: none;
 }
-
+.CTKcol-12{
+  width: 100%;
+}
 
 .CTKCustomPenel{
   margin-top: 20px;
@@ -111,8 +118,8 @@
   margin-top: 8px;
 }
 .CTKCustomPenel input{
-  width: 43%;
-  height: 30px;
+  width: 100%;
+  height: 32px;
   border: 1px solid #eee;
   border-radius: 0px;
   padding-left: 10px;
@@ -146,6 +153,7 @@
 .CTKswitch input {display:none;}
 
 .CTKslider {
+  transform: scale(.8);
   position: absolute;
   cursor: pointer;
   top: 0;

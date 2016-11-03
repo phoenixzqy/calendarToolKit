@@ -430,22 +430,27 @@ var calendarTool = (function () {
 		// append custom area under Calendar table
 		$("#CTKCustomPenel").append('\
 		<div id="CTKAvailableBtn"><div>\
-			<div id="CTKAvailableBtn" class="CTKcol-4">\
+			<div id="CTKAvailableBtn" class="CTKcol-3">\
 				<p class="CTKcol-6">' + options.lang.available + '</p>\
 				<label class="CTKswitch CTKcol-6">\
 				  <input id = "CTKisAvalabe" type="checkbox" checked>\
 				  <div class="CTKslider"></div>\
 				</label>\
 			</div>\
-		<div id="CTKMultiSelectBtn" class="CTKcol-4">\
+		<div id="CTKMultiSelectBtn" class="CTKcol-3">\
 			<p class="CTKcol-6">' + options.lang.multiSelect + '</p>\
 			<label class="CTKswitch CTKcol-6">\
 			  <input type="checkbox" checked>\
 			  <div class="CTKslider"></div>\
 			</label>\
 		</div>\
-		<div class="CTKcol-4"><input id="CTKDatePriceIn" class="CTKcol-6" type="text" maxlength="7" placeholder="' + options.lang.price + '"/>\
-		<div id="CTKSubmit" class="CTKcol-6"><button>' + options.lang.submit + '</button></div></div>\
+		<div id="CTKUnselectAllBtn" class="CTKcol-3">\
+			<div class="CTKcol-12"><button type="button">' + options.lang.unselectAll + '</button></div>\
+		</div>\
+		<div class="CTKcol-3">\
+			<div class="CTKcol-8"><input id="CTKDatePriceIn" type="text" maxlength="7" placeholder="' + options.lang.price + '"/></div>\
+			<div id="CTKSubmit" class="CTKcol-4"><button type="button">' + options.lang.submit + '</button></div>\
+		</div>\
 		');
 
 		// bind click event for every td element
