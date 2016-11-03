@@ -411,6 +411,24 @@ var calendarTool = (function () {
 	};
 
 	/**
+	 * select dates between 2 dates
+	 * @method selectBetween
+	 * @param  {[int]}      i1 [start date index in table]
+	 * @param  {[int]}      i2 [end date index in table]
+	 * @return {[type]}         [description]
+	 */
+	var selectBetween = function(i1, i2){
+		for(var i in table){
+			if(i >= i1 && i <= i2){
+				console.log(selectedDate.indexOf(table[i]))
+				// if it is not selected yet
+				if(selectedDate.indexOf(table[i]) < 0){
+					dateOnClick(table[i]);
+				}
+			}
+		}
+	}
+	/**
 	 * private Driver
 	 * @method main
 	 * @param  {[type]} opt [description]
@@ -431,24 +449,17 @@ var calendarTool = (function () {
 		// append custom area under Calendar table
 		$("#CTKCustomPenel").append('\
 		<div id="CTKAvailableBtn"><div>\
-			<div id="CTKAvailableBtn" class="CTKcol-3">\
+			<div id="CTKAvailableBtn" class="CTKcol-4">\
 				<p class="CTKcol-6">' + options.lang.available + '</p>\
 				<label class="CTKswitch CTKcol-6">\
 				  <input id = "CTKisAvalabe" type="checkbox" checked>\
 				  <div class="CTKslider"></div>\
 				</label>\
 			</div>\
-		<div id="CTKMultiSelectBtn" class="CTKcol-3">\
-			<p class="CTKcol-6">' + options.lang.multiSelect + '</p>\
-			<label class="CTKswitch CTKcol-6">\
-			  <input type="checkbox" checked>\
-			  <div class="CTKslider"></div>\
-			</label>\
-		</div>\
-		<div id="CTKUnselectAllBtn" class="CTKcol-3">\
+		<div id="CTKUnselectAllBtn" class="CTKcol-4">\
 			<div class="CTKcol-12"><button type="button">' + options.lang.unselectAll + '</button></div>\
 		</div>\
-		<div class="CTKcol-3">\
+		<div class="CTKcol-4">\
 			<div class="CTKcol-8"><input id="CTKDatePriceIn" type="text" maxlength="7" placeholder="' + options.lang.price + '"/></div>\
 			<div id="CTKSubmit" class="CTKcol-4"><button type="button">' + options.lang.submit + '</button></div>\
 		</div>\
@@ -506,9 +517,15 @@ var calendarTool = (function () {
 			// }
 			// if(emptyPriceArr.length <= 0){
 				options.submitFct();
+				resetSelection();
 			// }
 		});
 
+		// add click event for available btn and multiSelect btn
+		$(".CTKswitch").unbind("click").bind("click", function(e){
+			resetSelection();
+		})
+		
 		// add click event for unselectAll button
 		$("#CTKUnselectAllBtn button").unbind("click").bind("click", function(){
 			resetSelection();
@@ -533,6 +550,39 @@ var calendarTool = (function () {
 			$(this).find(".CTKCheck").css("opacity", 0);
 			$(this).find(".CTKCross").css("opacity", 0);
 		})
+
+		// add multiSelect function to calendar  --- start
+		var startDateIndex = -1;
+		var endDateIndex = -1;
+		var isMouseDown = false;
+		// detect mousedown event as multiSelect action starting point
+		$(".CTKtable td").mousedown(function(){
+			isMouseDown = true;
+			startDateIndex = table.indexOf(this);
+		}).mouseup(function(){// detect mouseup event as multiSelect action end point
+			selectBetween(startDateIndex, endDateIndex);
+
+			// reset all relative variables
+			isMouseDown = false;
+			startDateIndex = -1;
+			endDateIndex = -1;
+			for(var i in table)
+				$(table[i]).removeClass("CTKmultiSelect");
+		});
+		// detect mouseover event as the current multiSelect stage point
+		$(".CTKtable td").mouseover(function(){
+			if(isMouseDown){
+				endDateIndex = table.indexOf(this);
+				for(var i in table){
+					if(i >= startDateIndex && i <= endDateIndex){
+						$(table[i]).addClass("CTKmultiSelect");
+					}else{
+						$(table[i]).removeClass("CTKmultiSelect");
+					}
+				}
+			}
+		})
+		// multiSelect --- end
 	};
 
 	return{

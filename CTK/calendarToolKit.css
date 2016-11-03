@@ -1,5 +1,12 @@
 #calendarToolKit{
   font-size: 14px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+   -khtml-user-select: none; /* Konqueror */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                not supported by any browser */
 }
 .CTKdate{
   position: absolute;
@@ -58,6 +65,14 @@
 }
 .CTKselected{
   border: 2px solid rgb(10, 195, 213) !important;
+}
+.CTKmultiSelect{
+  transform: scale(1.03);
+  border-color: #058df5 !important;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-transition-duration: .5s; /* Safari */
+  transition-duration: .5s;
 }
 .CTKavailableDate{
   background-color: rgb(141, 231, 247) !important;
