@@ -521,11 +521,15 @@ var calendarTool = (function () {
 			// }
 		});
 
-		// add click event for available btn and multiSelect btn
-		$(".CTKswitch").unbind("click").bind("click", function(e){
+		// add click event for available btn
+		$(".CTKswitch").unbind("change").bind("change", function(){
+			var isChecked = $("#CTKisAvalabe").is(":checked");
+			while(!isChecked && selectedDate.length > 0){
+				dateOnClick(selectedDate[0]);
+			}
 			resetSelection();
-		})
-		
+		});
+
 		// add click event for unselectAll button
 		$("#CTKUnselectAllBtn button").unbind("click").bind("click", function(){
 			resetSelection();
