@@ -241,7 +241,7 @@ var Calendar = (function () {
 			for (var i = 0; i < 6; i++) {
 				var row = "";
 				for (var j = 0; j < 7; j++) {
-					row += ("<td ><div class='CTKdate'></div>" + options.customDateInfo + "</td>");
+					row += ("<td ><div class='CTKCheck'></div><div class='CTKCross'></div><div class='CTKdate'></div>" + options.customDateInfo + "</td>");
 				}
 				$("#CTKTable").append("<tr>" + row + "</tr>");
 			}
@@ -278,7 +278,8 @@ var calendarTool = (function () {
 			price: "Price",
 			available: "Available:",
 			multiSelect: "Multi-Select:",
-			submit: "Submit"
+			submit: "Submit",
+			unselectAll: "Unselect All"
 		},
 		customDateInfo : "<div class='CTKDatePrice'></div>",
 		// Customable submit callback function
@@ -507,6 +508,31 @@ var calendarTool = (function () {
 				options.submitFct();
 			// }
 		});
+
+		// add click event for unselectAll button
+		$("#CTKUnselectAllBtn button").unbind("click").bind("click", function(){
+			resetSelection();
+			$("#CTKDatePriceIn").val('');
+		});
+
+		// add hover event for table cells: if available is checked, then show green check symbol. otherwise, show red cross symbol instead.
+		$(".CTKtable td").hover(function(){
+			// mute dates before today
+			var today = new Date();
+			today.setHours(0,0,0,0);
+			var dateArr = cal.dateParser($(this).find(".CTKdate").attr('caldata'));
+			var d = new Date(dateArr[0], dateArr[1],dateArr[2]);
+			d.setHours(0,0,0,0);
+
+			if($("#CTKisAvalabe").is(":checked") && d >= today){
+				$(this).find(".CTKCheck").css("opacity", 1);
+			}else{
+				$(this).find(".CTKCross").css("opacity", 1);
+			}
+		}, function(){
+			$(this).find(".CTKCheck").css("opacity", 0);
+			$(this).find(".CTKCross").css("opacity", 0);
+		})
 	};
 
 	return{
