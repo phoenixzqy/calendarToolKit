@@ -4,7 +4,7 @@ Calendar Tool Kit (jQuery)
 
 This is a simple Calendar Tool Kit based on jQuery. With this tool, you can generate most of the calendar tools for your website. And even you can customize your own calendar based tools.
 
-Version 1.1.1
+Version 1.1.2
 ---
 For now, the tool kit only include **2 date pickers**. Please go to the demo page and try it out.
 
@@ -210,4 +210,5 @@ Enjoy
 ---
 Author: Felix Zhao
 
-Date: Oct 12th, 2016
+Create Date: Oct 12th, 2016
+Last Edit: Nov 3rd, 2016
