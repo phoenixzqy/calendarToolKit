@@ -8,7 +8,7 @@ Version 1.1.2
 ---
 For now, the tool kit only include **2 date pickers**. Please go to the demo page and try it out.
 
-### [Demo](https://phoenixzqy.github.io/demo/)
+### [Demo](https://phoenixzqy.github.io/demo/calendar/index.html)
 
 Note: The repo only has one Date Picker module. The other one is under revising.
 
